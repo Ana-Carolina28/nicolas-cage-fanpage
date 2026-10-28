@@ -125,5 +125,5 @@ Não precisa rodar `npm install`, nem configurar ambiente Docker ou instalar bib
 Projeto desenvolvido como parte dos estudos de **Engenharia de Software com IA**, testando os fluxos e limites criativos do **Antigravity**.
 
 <p align="center">
-  Feito com ⚡, ☕ e uma quantidade perigosa de <strong>Cage Rage</strong>.
+  Feito com ⚡, pipoca de cinema 🍿, amor pela sétima arte e uma quantidade perigosa de <strong>Cage Rage</strong>.
 </p>
