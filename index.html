@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE CAGEVERSE | O Santuário de Nicolas Cage</title>
+  <meta name="description" content="A fan page definitiva e mais estilosa de Nicolas Cage. Design inovador, modo diurno e noturno, medidor de Cage Rage, filmografia curada, oráculo de frases e mini-game.">
+
+  <!-- Google Fonts: Cinzel, Syne e Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Folha de Estilos Principal -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Canvas de Partículas Dinâmicas de Fundo -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Brilhos de Iluminação Ambiente (Aura Dinâmica) -->
+  <div class="ambient-aura" id="ambient-aura-1"></div>
+  <div class="ambient-aura-2" id="ambient-aura-2"></div>
+
+  <!-- ==========================================================================
+       BARRA DE NAVEGAÇÃO SUPERIOR
+       ========================================================================== -->
+  <header class="site-header" id="site-header">
+    <div class="container navbar">
+      <a href="#inicio" class="brand-logo" title="The Cageverse - Santuário Oficial dos Fãs">
+        <span class="brand-icon">⚡</span>
+        <span>THE <span class="gold-gradient-text">CAGEVERSE</span></span>
+      </a>
+
+      <!-- Links de Navegação -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio" class="nav-link active">Início</a></li>
+        <li><a href="#gageometro" class="nav-link">Gageômetro</a></li>
+        <li><a href="#filmografia" class="nav-link">Filmografia</a></li>
+        <li><a href="#oraculo" class="nav-link">Oráculo</a></li>
+        <li><a href="#quiz" class="nav-link">Quiz</a></li>
+        <li><a href="#fatos" class="nav-link">Arquivo Secreto</a></li>
+        <li><a href="#minigame" class="nav-link">Mini-Game</a></li>
+      </ul>
+
+      <!-- Ações: Alternador de Som & Alternador de Tema Diurno/Noturno -->
+      <div class="nav-actions">
+        <!-- Botão de Efeitos Sonoros -->
+        <button id="sound-toggle" class="btn-icon" title="Ativar/Desativar Efeitos Sonoros" aria-label="Efeitos Sonoros">
+          <svg id="sound-icon-on" viewBox="0 0 24 24">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
+        </button>
+
+        <!-- Botão Alternador de Modo Diurno / Noturno -->
+        <button id="theme-toggle" class="btn-icon" title="Alternar Modo Noturno / Diurno" aria-label="Alternar Tema">
+          <!-- Ícone Sol (quando em modo noturno) -->
+          <svg id="theme-icon-sun" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+
+        <!-- Botão Menu Mobile -->
+        <button id="mobile-toggle" class="btn-icon mobile-menu-btn" title="Abrir Menu" aria-label="Abrir Menu">
+          <svg viewBox="0 0 24 24">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION (APRESENTAÇÃO IMPACTANTE & VISUAL)
+         ========================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-text-content">
+          <div class="hero-badge-wrap">
+            <span class="badge">🏆 Vencedor do Oscar</span>
+            <span class="badge">👑 Tesouro Nacional</span>
+            <span class="badge">⚡ Método Nouveau Shamanic</span>
+          </div>
+
+          <h1 class="hero-title">
+            O Camaleão Imortal do Cinema: <br>
+            <span class="gold-gradient-text">NICOLAS CAGE</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Ator, filósofo do caos, ícone pop e força da natureza. Seja sussurrando poesias melancólicas ou empunhando motosserras em chamas, ninguém na história da sétima arte atua como ele.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#filmografia" class="btn-primary">
+              <span>Explorar a Cineteca</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#oraculo" class="btn-secondary">
+              <span>Canalizar o Oráculo</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h4>110+</h4>
+              <p>Filmes Filmados</p>
+            </div>
+            <div class="stat-item">
+              <h4>100%</h4>
+              <p>Entrega Visceral</p>
+            </div>
+            <div class="stat-item">
+              <h4>1</h4>
+              <p>Declaração Roubada</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cartão Visual Hero 3D com Retrato de Nicolas Cage -->
+        <div class="hero-visual-card">
+          <div class="hero-portrait-frame">
+            <!-- Imagem com link Wikimedia Commons em alta resolução e fallback artístico automático -->
+            <img 
+              id="hero-cage-img"
+              src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Nicolas_Cage_Deauville_2013.jpg" 
+              alt="Nicolas Cage em alta resolução no Festival de Deauville" 
+              class="hero-portrait-img"
+              onerror="this.onerror=null; this.src='https://upload.wikimedia.org/wikipedia/commons/7/72/Nicolas_Cage_2010.jpg';"
+            >
+            <div class="hero-portrait-overlay">
+              <div class="hero-portrait-caption">Nicolas Kim Coppola</div>
+              <div class="hero-portrait-sub">"Eu tenho uma necessidade espiritual de expressar pura emoção."</div>
+            </div>
+          </div>
+          <div class="floating-badge">
+            <span>🔥</span>
+            <span>Intensidade: 100% Shamanic</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         O GAGEÔMETRO (MEDIDOR INTERATIVO DE CAGE RAGE)
+         ========================================================================== -->
+    <section class="meter-section" id="gageometro">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Interatividade Única</span>
+          <h2 class="section-title">O <span class="gold-gradient-text">Gageômetro</span> de Intensidade</h2>
+          <p class="section-desc">
+            Deslize o controle para alterar a frequência emocional da página. Da contemplação zen ao ápice do lendário "Cage Rage".
+          </p>
+        </div>
+
+        <div class="cage-meter-card" id="meter-card">
+          <div class="meter-header-info">
+            <div>
+              <span class="meter-level-indicator" id="meter-level-tag">NÍVEL 3 DE 5</span>
+              <h3 class="meter-level-name" id="meter-level-title">Herói Destemido & Tesouro</h3>
+            </div>
+            <button class="btn-secondary" id="btn-sound-rage" style="padding: 8px 16px; font-size: 0.85rem;">
+              🔊 Ouvir o Grito Cage
+            </button>
+          </div>
+
+          <!-- Slider Customizado -->
+          <div class="slider-container">
+            <input 
+              type="range" 
+              id="cage-slider" 
+              class="cage-slider" 
+              min="1" 
+              max="5" 
+              value="3" 
+              step="1"
+            >
+            <div class="slider-ticks">
+              <span class="tick-label" data-level="1">1. Zen Poético</span>
+              <span class="tick-label" data-level="2">2. Excêntrico</span>
+              <span class="tick-label active" data-level="3">3. Herói Clássico</span>
+              <span class="tick-label" data-level="4">4. Vingador Fúria</span>
+              <span class="tick-label" data-level="5">5. NOT THE BEES!</span>
+            </div>
+          </div>
+
+          <!-- Display Informativo do Nível -->
+          <div class="meter-display-box">
+            <div class="meter-avatar-icon" id="meter-emoji">😎</div>
+            <div class="meter-info-text">
+              <h5 id="meter-archetype">O Salvador Obstinado (Era National Treasure)</h5>
+              <p id="meter-desc">Focado, carismático e determinado a decifrar qualquer enigma histórico pelo bem da humanidade.</p>
+              <span class="meter-quote-tag" id="meter-quote">"Vou roubar a Declaração de Independência."</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FILMOGRAFIA CURADA (AS ERAS DE NICOLAS CAGE)
+         ========================================================================== -->
+    <section class="films-section" id="filmografia">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Acervo Cinematográfico</span>
+          <h2 class="section-title">A <span class="gold-gradient-text">Cineteca</span> do Mestre</h2>
+          <p class="section-desc">
+            Uma seleção criteriosa das obras mais memoráveis, premiadas e delirantes da carreira de Nicolas Cage.
+          </p>
+        </div>
+
+        <!-- Filtros de Categorias -->
+        <div class="films-filter-bar">
+          <button class="filter-btn active" data-filter="all">Todos os Filmes</button>
+          <button class="filter-btn" data-filter="oscar">🏆 Obras-Primas & Oscar</button>
+          <button class="filter-btn" data-filter="action">💥 Clássicos da Ação</button>
+          <button class="filter-btn" data-filter="cult">🔥 Cult Extremo & Rage</button>
+          <button class="filter-btn" data-filter="meta">🎭 Meta-Cinema & Humor</button>
+        </div>
+
+        <!-- Grade de Filmes -->
+        <div class="films-grid" id="films-grid">
+          <!-- Renderizado dinamicamente via script.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Detalhes do Filme -->
+    <div class="film-modal" id="film-modal">
+      <div class="film-modal-box" id="film-modal-content">
+        <button class="modal-close-btn" id="modal-close" aria-label="Fechar Modal">&times;</button>
+        <div id="modal-body">
+          <!-- Injetado via JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         ORÁCULO DO CAGE (CANALIZE UMA FRASE SHAMANIC)
+         ========================================================================== -->
+    <section class="oracle-section" id="oraculo">
+      <div class="container">
+        <div class="oracle-card">
+          <div class="oracle-icon-glow">🔮</div>
+          <span class="section-tag">Sabedoria Cósmica</span>
+          <h2 class="section-title">O Oráculo de <span class="gold-gradient-text">Nicolas Cage</span></h2>
+          <p class="section-desc">
+            Precisa de um conselho para sua vida? Conecte-se com a frequência espiritual do mestre e receba uma profecia cinematográfica.
+          </p>
+
+          <div class="quote-bubble">
+            <p class="quote-text" id="oracle-quote-text">
+              "Coloque o coelhinho de volta na caixa."
+            </p>
+            <div class="quote-author" id="oracle-character">Cameron Poe</div>
+            <div class="quote-movie" id="oracle-movie">Con Air: A Rota da Fuga (1997)</div>
+          </div>
+
+          <div class="oracle-actions">
+            <button class="btn-primary" id="btn-oracle-next">
+              <span>Canalizar Outra Frase</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+            </button>
+            <button class="btn-speak" id="btn-oracle-speak" title="Ouvir a citação em voz alta">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+              <span>Voz Teatral (Speech)</span>
+            </button>
+            <button class="btn-secondary" id="btn-oracle-copy" title="Copiar citação para a área de transferência">
+              <span>Copiar Frase</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         QUIZ INTERATIVO: QUAL NICOLAS CAGE É VOCÊ?
+         ========================================================================== -->
+    <section class="quiz-section" id="quiz">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Descubra sua Alma</span>
+          <h2 class="section-title">Qual <span class="gold-gradient-text">Nicolas Cage</span> Você é Hoje?</h2>
+          <p class="section-desc">
+            Responda a 4 perguntas existenciais e descubra em qual faceta do Cageverso sua alma está operando neste momento.
+          </p>
+        </div>
+
+        <div class="quiz-container" id="quiz-container">
+          <!-- Barra de Progresso -->
+          <div class="quiz-progress-bar">
+            <div class="quiz-progress-fill" id="quiz-progress"></div>
+          </div>
+
+          <!-- Pergunta Atual -->
+          <div class="quiz-question-box" id="quiz-question-box">
+            <div class="quiz-step-tag" id="quiz-step-tag">Pergunta 1 de 4</div>
+            <h3 class="quiz-question-title" id="quiz-question-title">Como você reage quando algo dá totalmente errado no seu dia?</h3>
+            <div class="quiz-options-grid" id="quiz-options-grid">
+              <!-- Botões injetados dinamicamente via JS -->
+            </div>
+          </div>
+
+          <!-- Tela de Resultado do Quiz -->
+          <div class="quiz-result-view" id="quiz-result-view">
+            <div class="result-badge-icon" id="result-icon">🪓</div>
+            <span class="section-tag">Seu Arquétipo Cage Revelado</span>
+            <h3 class="result-title" id="result-title">O Vingador Psicodélico (Era Mandy)</h3>
+            <p class="result-desc" id="result-desc">
+              Você não foge dos conflitos — você forja seu próprio machado ritualístico, veste uma camiseta manchada de glória e marcha implacavelmente rumo ao destino. Intensidade máxima!
+            </p>
+            <div class="result-motto" id="result-motto">
+              "Lema: Não há força na Terra capaz de deter quem não tem nada a perder."
+            </div>
+            <button class="btn-primary" id="btn-quiz-restart">
+              <span>Refazer o Quiz</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         ARQUIVO SECRETO: FATOS REAIS QUE PARECEM FICÇÃO
+         ========================================================================== -->
+    <section class="facts-section" id="fatos">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Dossiê Confidencial</span>
+          <h2 class="section-title">O <span class="gold-gradient-text">Arquivo Secreto</span> do Cage</h2>
+          <p class="section-desc">
+            Fatos 100% verídicos sobre a vida real de Nicolas Cage que superam qualquer roteiro de ficção científica.
+          </p>
+        </div>
+
+        <div class="facts-grid">
+          <!-- Fato 1: O Tiranossauro -->
+          <div class="fact-card">
+            <div class="fact-card-header">
+              <div class="fact-icon-badge">🦖</div>
+              <h4 class="fact-card-title">O Crânio de T-Rex</h4>
+            </div>
+            <p class="fact-card-text">
+              Em um leilão em 2007, Cage disputou ferozmente contra Leonardo DiCaprio e comprou o crânio de um Tiranossauro Bataar de 67 milhões de anos por US$ 276.000. Anos depois, descobriu que o fóssil havia sido contrabandeado e o devolveu voluntariamente ao governo da Mongólia.
+            </p>
+            <span class="fact-card-tag">#PaleontologiaExtrema</span>
+          </div>
+
+          <!-- Fato 2: A Pirâmide -->
+          <div class="fact-card">
+            <div class="fact-card-header">
+              <div class="fact-icon-badge">📐</div>
+              <h4 class="fact-card-title">O Mausoléu Piramidal</h4>
+            </div>
+            <p class="fact-card-text">
+              Ele já comprou seu próprio túmulo no histórico cemitério Saint Louis No. 1 em Nova Orleans: uma pirâmide monumental de pedra com 2,7 metros de altura gravada com o enigma em latim <em>"Omnia Ab Uno"</em> ("Tudo a partir de Um").
+            </p>
+            <span class="fact-card-tag">#EternidadeGótica</span>
+          </div>
+
+          <!-- Fato 3: O Polvo de Atuação -->
+          <div class="fact-card">
+            <div class="fact-card-header">
+              <div class="fact-icon-badge">🐙</div>
+              <h4 class="fact-card-title">O Polvo Metódico</h4>
+            </div>
+            <p class="fact-card-text">
+              Comprou um polvo de estimação por US$ 150.000, afirmando que observar os movimentos hipnóticos e imprevisíveis de criaturas não-humanas o ajudava a aprimorar suas expressões dramáticas nos sets de filmagem.
+            </p>
+            <span class="fact-card-tag">#NouveauShamanic</span>
+          </div>
+
+          <!-- Fato 4: A Barata ao Vivo -->
+          <div class="fact-card">
+            <div class="fact-card-header">
+              <div class="fact-icon-badge">🪳</div>
+              <h4 class="fact-card-title">O Banquete Real</h4>
+            </div>
+            <p class="fact-card-text">
+              No roteiro de <em>O Beijo do Vampiro</em> (1988), o personagem deveria comer um ovo cru. Cage achou sem impacto e insistiu em comer uma barata viva de verdade. Como o diretor pediu repetição, ele comeu duas baratas no mesmo dia.
+            </p>
+            <span class="fact-card-tag">#MétodoRadical</span>
+          </div>
+
+          <!-- Fato 5: Luke Cage & Kal-El -->
+          <div class="fact-card">
+            <div class="fact-card-header">
+              <div class="fact-icon-badge">🦸</div>
+              <h4 class="fact-card-title">Sobrenome dos Quadrinhos</h4>
+            </div>
+            <p class="fact-card-text">
+              Nascido Nicolas Kim Coppola (sobrinho do lendário Francis Ford Coppola), ele adotou o sobrenome "Cage" em homenagem ao herói Luke Cage da Marvel, para vencer pelo próprio talento. Mais tarde, batizou seu próprio filho de Kal-El (o nome kryptoniano do Superman).
+            </p>
+            <span class="fact-card-tag">#HeróiDaVidaReal</span>
+          </div>
+
+          <!-- Fato 6: Dois Castelos Reais -->
+          <div class="fact-card">
+            <div class="fact-card-header">
+              <div class="fact-icon-badge">🏰</div>
+              <h4 class="fact-card-title">Senhor de Castelos</h4>
+            </div>
+            <p class="fact-card-text">
+              Já foi proprietário simultâneo de um castelo medieval na Bavária (Alemanha) do século XI e de outro castelo gótico em Somerset (Inglaterra), além da infame Mansão LaLaurie em Nova Orleans, dita a casa mais assombrada dos EUA.
+            </p>
+            <span class="fact-card-tag">#AristocraciaCage</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         MINI-GAME: "ROUBO DO TESOURO & O ENXAME DE ABELHAS"
+         ========================================================================== -->
+    <section class="game-section" id="minigame">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-tag">Arcade Interativo</span>
+          <h2 class="section-title">Escape das <span class="gold-gradient-text">Abelhas</span>!</h2>
+          <p class="section-desc">
+            Ajude Nicolas Cage a recolher os fragmentos da Declaração de Independência enquanto desvia das lendárias abelhas enfurecidas!
+          </p>
+        </div>
+
+        <div class="game-container-card">
+          <div class="game-status-bar">
+            <div>Pontuação: <span id="game-score" class="game-stat-tag">0</span></div>
+            <div>Recorde: <span id="game-highscore" class="game-stat-tag">0</span></div>
+            <div>Vidas: <span id="game-lives" class="game-stat-tag">❤️❤️❤️</span></div>
+          </div>
+
+          <div class="game-canvas-wrap">
+            <canvas id="game-canvas" width="760" height="400"></canvas>
+            
+            <!-- Tela de Inicialização / Game Over -->
+            <div class="game-overlay-screen" id="game-overlay">
+              <h3 id="overlay-title" class="font-title" style="font-size: 2.2rem; margin-bottom: 12px; color: #fbbf24;">
+                MISSÃO: DECLARAÇÃO DE INDEPENDÊNCIA
+              </h3>
+              <p id="overlay-msg" style="color: #cbd5e1; max-width: 440px; margin-bottom: 24px;">
+                Use o Mouse, as Setas do Teclado ou Toque para mover Nicolas Cage. Colete os pergaminhos dourados 📜 e fuja das abelhas assassinas 🐝!
+              </p>
+              <button class="btn-primary" id="btn-start-game">
+                <span>INICIAR JOGO</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <p class="game-controls-help">
+            🎮 <strong>Controles:</strong> Mova o mouse dentro do jogo ou use as teclas [←] [→] / [A] [D]. Celular: arraste com o dedo.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       FOOTER (RODAPÉ ELEGANTE & TRIBUTO)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#inicio" class="brand-logo">
+            <span class="brand-icon">⚡</span>
+            <span>THE <span class="gold-gradient-text">CAGEVERSE</span></span>
+          </a>
+          <p>
+            Um tributo visual, interativo e irreverente à carreira sem precedentes do ator mais destemido da história de Hollywood. Feito com paixão, design moderno e muito ouro.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navegação Rápida</h5>
+          <ul class="footer-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#gageometro">O Gageômetro</a></li>
+            <li><a href="#filmografia">Filmografia Curada</a></li>
+            <li><a href="#oraculo">Oráculo de Frases</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Interatividade</h5>
+          <ul class="footer-links">
+            <li><a href="#quiz">Quiz de Personalidade</a></li>
+            <li><a href="#fatos">Dossiê Confidencial</a></li>
+            <li><a href="#minigame">Mini-Game do Tesouro</a></li>
+            <li><a href="javascript:void(0)" id="btn-easter-egg">🎉 Chuva de Cage</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 THE CAGEVERSE. Criado com devoção ao cinema e ao método Nouveau Shamanic.</div>
+        <div>Alternância instantânea de Modo Noturno & Diurno ☀️🌙</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script Principal -->
+  <script src="script.js"></script>
+</body>
+</html>
